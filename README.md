@@ -4,7 +4,7 @@ Fan site for the amazing ESP32 Dev board with a touch screen!
 
 If you work on this board and want to share your efforts, contact me to add your projects to this repo
 
-<img src="https://raw.githubusercontent.com/rtek1000/2.4inch_ESP32-2432S024/main/photos/front.png" width=50% height=50%>
+<img src="https://raw.githubusercontent.com/rtek1000/2.4inch_ESP32-2432S024/main/photos/front.png" width=25% height=25%>
 
 Board, shown running the as-shipped demo touchscreen firmware
 
