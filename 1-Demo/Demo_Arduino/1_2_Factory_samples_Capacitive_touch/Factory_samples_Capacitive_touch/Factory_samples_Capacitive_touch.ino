@@ -11,7 +11,7 @@
 #include <demos/lv_demos.h>
 
 // 0,1: Portrait; 1,3: Landscape
-#define screenRotate 2
+#define screenRotate 0
 
 /* Change screen resolution */
 #define screenSizeBig 320    // Bigger
