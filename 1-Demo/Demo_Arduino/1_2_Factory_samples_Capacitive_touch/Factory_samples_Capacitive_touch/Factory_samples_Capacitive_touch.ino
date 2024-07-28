@@ -11,16 +11,16 @@
 #include <demos/lv_demos.h>
 
 // 0,1: Portrait; 1,3: Landscape
-#define screenRotate 0
+#define screenRotate 2
 
 /* Change screen resolution */
 #define screenSizeBig 320    // Bigger
 #define screenSizeSmall 240  // Smaller
 
-#if screenRotate == 0 || screenRotate == 2 // Portrait
+#if screenRotate == 0 || screenRotate == 2  // Portrait
 static const uint16_t screenWidth = screenSizeSmall;
 static const uint16_t screenHeight = screenSizeBig;
-#elif screenRotate == 1 || screenRotate == 3 // Landscape
+#elif screenRotate == 1 || screenRotate == 3  // Landscape
 static const uint16_t screenWidth = screenSizeBig;
 static const uint16_t screenHeight = screenSizeSmall;
 #endif
@@ -167,24 +167,24 @@ void my_touchpad_read(lv_indev_drv_t *indev_driver, lv_indev_data_t *data) {
     data->state = LV_INDEV_STATE_PR;
 
     /*Set the coordinates*/
-    if (screenRotate == 0) {
-      data->point.x = touchX;
-      data->point.y = touchY;
-    } else if (screenRotate == 1) {
-      data->point.y = screenHeight - touchX;
-      data->point.x = touchY;
-    } else if (screenRotate == 2) {
-      data->point.x = screenWidth - touchX;
-      data->point.y = screenHeight - touchY;
-    } else if (screenRotate == 3) {
-      data->point.y = touchX;
-      data->point.x = screenWidth - touchY;
-    }
+#if screenRotate == 0 // Portrait
+    data->point.x = touchX;
+    data->point.y = touchY;
+#elif screenRotate == 1  // Landscape
+    data->point.y = screenHeight - touchX;
+    data->point.x = touchY;
+#elif screenRotate == 2  // Portrait
+    data->point.x = screenWidth - touchX;
+    data->point.y = screenHeight - touchY;
+#elif screenRotate == 3  // Landscape
+    data->point.y = touchX;
+    data->point.x = screenWidth - touchY;
+#endif
 
-    Serial.print("Touched: ");
-    Serial.print(data->point.x);
-    Serial.print(", ");
-    Serial.println(data->point.y);
+    // Serial.print("Touched: ");
+    // Serial.print(data->point.x);
+    // Serial.print(", ");
+    // Serial.println(data->point.y);
   }
 }
 
