@@ -11,3 +11,6 @@ Board, shown running the as-shipped demo touchscreen firmware
 ![Back](https://raw.githubusercontent.com/NoosaHydro/2.4inch_ESP32-2432S024/main/photos/back.png)
 
 Back, showing location and naming of pins and headers (refer Specifications PDF)
+
+- Added screen rotation (touch follows rotation):
+![Landscape](https://raw.githubusercontent.com/rtek1000/2.4inch_ESP32-2432S024/main/photos/Landscape.jpg)
