@@ -45,6 +45,6 @@ Example (file: Demo_Arduino/libraries/TFT_eSPI/Processors/TFT_eSPI_ESP32.h):
 
 Note: For the Arduino IDE (v2) to find the libraries, in the [menu]file/preferences select "Sketchbook location":
 ```
-2.4inch_ESP32-2432S024b/1-Demo/Demo_Arduino
+2.4inch_ESP32-2432S024/1-Demo/Demo_Arduino
 ```
 (There is already a folder called 'library' there)
