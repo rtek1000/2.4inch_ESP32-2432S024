@@ -19,3 +19,13 @@ By RTEK1000:
 - [Added screen rotation](https://github.com/rtek1000/2.4inch_ESP32-2432S024/blob/main/1-Demo/Demo_Arduino/1_2_Factory_samples_Capacitive_touch/Factory_samples_Capacitive_touch/Factory_samples_Capacitive_touch.ino) (touch follows rotation):
 
 <img src="https://raw.githubusercontent.com/rtek1000/2.4inch_ESP32-2432S024/main/photos/Landscape.jpg" width=50% height=50%>
+
+### If the error occurs:
+- " 'GPIO' was not declared in this scope"
+- - Try including this file:
+> #include "hal/gpio_ll.h" // GPIO register functions
+- - Ref.: https://github.com/prenticedavid/MCUFRIEND_kbv/issues/255
+
+Note: In the Arduino IDE (v2) preferences select "Sketchbook location":
+2.4inch_ESP32-2432S024b/1-Demo/Demo_Arduino
+- There is already a folder called 'library' there
