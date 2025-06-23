@@ -20,12 +20,31 @@ By RTEK1000:
 
 <img src="https://raw.githubusercontent.com/rtek1000/2.4inch_ESP32-2432S024/main/photos/Landscape.jpg" width=50% height=50%>
 
-### If the error occurs:
-- " 'GPIO' was not declared in this scope"
-- - Try including this file:
+### If the error " 'GPIO' was not declared in this scope" occurs:
+- Try including this file:
 > #include "hal/gpio_ll.h" // GPIO register functions
 - - Ref.: https://github.com/prenticedavid/MCUFRIEND_kbv/issues/255
+ 
+Example (file: Demo_Arduino/libraries/TFT_eSPI/Processors/TFT_eSPI_ESP32.h):
+```C++
+        ////////////////////////////////////////////////////
+        // TFT_eSPI driver functions for ESP32 processors //
+        ////////////////////////////////////////////////////
 
-Note: In the Arduino IDE (v2) preferences select "Sketchbook location":
+#ifndef _TFT_eSPI_ESP32H_
+#define _TFT_eSPI_ESP32H_
+
+// Processor ID reported by getSetup()
+#define PROCESSOR_ID 0x32
+
+// Include processor specific header
+#include "soc/spi_reg.h"
+#include "driver/spi_master.h"
+#include "hal/gpio_ll.h" // GPIO register functions
+```
+
+Note: For the Arduino IDE (v2) to find the libraries, in the [menu]file/preferences select "Sketchbook location":
+```
 2.4inch_ESP32-2432S024b/1-Demo/Demo_Arduino
-- There is already a folder called 'library' there
+```
+(There is already a folder called 'library' there)
