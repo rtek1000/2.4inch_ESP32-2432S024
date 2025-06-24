@@ -16,6 +16,9 @@ Back, showing location and naming of pins and headers (refer Specifications PDF)
 
 By RTEK1000:
 
+### Info:
+- Examples are only compatible with LVGL version 8.3.3, see file 2.4inch_ESP32-2432S024.zip (Downloads)
+
 - [Added screen rotation](https://github.com/rtek1000/2.4inch_ESP32-2432S024/blob/main/1-Demo/Demo_Arduino/1_2_Factory_samples_Capacitive_touch/Factory_samples_Capacitive_touch/Factory_samples_Capacitive_touch.ino) (touch follows rotation):
 
 <img src="https://raw.githubusercontent.com/rtek1000/2.4inch_ESP32-2432S024/main/photos/Landscape.jpg" width=50% height=50%>
