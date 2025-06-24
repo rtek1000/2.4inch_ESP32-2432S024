@@ -23,11 +23,11 @@ void CST820::begin(void)
     // Int Pin Configuration
     if (_int != -1)
     {
-        pinMode(_int, OUTPUT);
-        digitalWrite(_int, HIGH); //高电平
-        delay(1);
-        digitalWrite(_int, LOW); //低电平
-        delay(1);
+        pinMode(_int, INPUT);
+        // digitalWrite(_int, HIGH); //高电平
+        // delay(1);
+        // digitalWrite(_int, LOW); //低电平
+        // delay(1);
     }
 
     // Reset Pin Configuration
