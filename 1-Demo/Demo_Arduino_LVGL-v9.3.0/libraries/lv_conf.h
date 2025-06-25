@@ -651,7 +651,7 @@
 #define LV_FONT_UNSCII_8  0
 #define LV_FONT_UNSCII_16 0
 
-/** FreeSans monospaced fonts */
+/** FreeSans fonts */
 #define LV_FONT_FREESANS_8 0
 #define LV_FONT_FREESANS_10 0
 #define LV_FONT_FREESANS_12 0
