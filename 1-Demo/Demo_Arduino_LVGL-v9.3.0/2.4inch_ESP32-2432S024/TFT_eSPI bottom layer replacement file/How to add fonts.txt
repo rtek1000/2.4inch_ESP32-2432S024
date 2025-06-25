@@ -7,7 +7,9 @@ sudo npx lv_font_conv --no-compress --no-prefilter --bpp 4 --size 18 --font Free
 
 sudo npx lv_font_conv --no-compress --no-prefilter --bpp 4 --size 18 --font fileName.ttf -r 0x20-0xFF --format lvgl -o lv_font_fontName_18.c --force-fast-kern-format
 
-- It is necessary to check the content of the footer of the font file, it should be the following (see the lvgl/src/font/lv_montserrat_xx font), put the original value of the generated font:
+- It is necessary to check the content of the footer of the font file,
+  it should be the following (see the lvgl/src/font/lv_montserrat_xx font),
+  put the original value of the generated font:
 
 - - Example: 
 
