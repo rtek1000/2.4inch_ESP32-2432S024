@@ -113,79 +113,70 @@ static uint32_t my_tick(void) {
   return millis();
 }
 
-int btn1_count = 0;
+static int hr1 = 12;
+static int min1 = 0;
+static int sec1 = 0;
+
+lv_obj_t* label_notif;
+
+void timer1_tick(lv_timer_t* timer) {
+  if (sec1 < 59) {
+    sec1++;
+  } else {
+    sec1 = 0;
+
+    if (min1 < 59) {
+      min1++;
+    } else {
+      min1 = 0;
+
+      if (hr1 < 23) {
+        hr1++;
+      } else {
+        hr1 = 0;
+      }
+    }
+  }
+
+  lv_label_set_text_fmt(label_notif, "%02d:%02d:%02d", hr1, min1, sec1);
+}
+
+lv_obj_t* mbox1;
+
+static void event_msgbox_cb(lv_event_t* e) {
+  lv_obj_t* btn = lv_event_get_target_obj(e);
+  lv_obj_t* label = lv_obj_get_child(btn, 0);
+  LV_UNUSED(label);
+  String txt1 = lv_label_get_text(label);
+
+  if (txt1 == "Apply") {
+    sec1 = 0;
+    min1 = 0;
+    hr1 = 12;
+  }
+
+  LV_LOG_USER("Button %s clicked", txt1);
+
+  lv_msgbox_close(mbox1);
+}
+
 // Callback that is triggered when btn1 is clicked
-static void event_handler_btn1(lv_event_t* e) {
+static void event_btn1_cb(lv_event_t* e) {
   lv_event_code_t code = lv_event_get_code(e);
   if (code == LV_EVENT_CLICKED) {
-    btn1_count++;
-    LV_LOG_USER("Button clicked %d", (int)btn1_count);
+    // Create Message Box:
+    mbox1 = lv_msgbox_create(NULL);
+
+    lv_msgbox_add_title(mbox1, "Clock");
+    lv_msgbox_add_text(mbox1, "Do you want to\nreset the count?");
+    lv_msgbox_add_close_button(mbox1);
+
+    lv_obj_t* btn;
+    btn = lv_msgbox_add_footer_button(mbox1, "Apply");
+    lv_obj_add_event_cb(btn, event_msgbox_cb, LV_EVENT_CLICKED, NULL);
+    btn = lv_msgbox_add_footer_button(mbox1, "Cancel");
+    lv_obj_add_event_cb(btn, event_msgbox_cb, LV_EVENT_CLICKED, NULL);
   }
-}
-
-// Callback that is triggered when btn2 is clicked/toggled
-static void event_handler_btn2(lv_event_t* e) {
-  lv_event_code_t code = lv_event_get_code(e);
-  lv_obj_t* obj = (lv_obj_t*)lv_event_get_target(e);
-  if (code == LV_EVENT_VALUE_CHANGED) {
-    LV_UNUSED(obj);
-    LV_LOG_USER("Toggled %s", lv_obj_has_state(obj, LV_STATE_CHECKED) ? "on" : "off");
-  }
-}
-
-static lv_obj_t* slider_label;
-// Callback that prints the current slider value on the TFT display and Serial Monitor for debugging purposes
-static void slider_event_callback(lv_event_t* e) {
-  lv_obj_t* slider = (lv_obj_t*)lv_event_get_target(e);
-  char buf[8];
-  lv_snprintf(buf, sizeof(buf), "%d%%", (int)lv_slider_get_value(slider));
-  lv_label_set_text(slider_label, buf);
-  lv_obj_align_to(slider_label, slider, LV_ALIGN_OUT_BOTTOM_MID, 0, 10);
-  LV_LOG_USER("Slider changed to %d%%", (int)lv_slider_get_value(slider));
-}
-
-void lv_create_main_gui(void) {
-  // Create a text label aligned center on top ("Hello, world!")
-  lv_obj_t* text_label = lv_label_create(lv_screen_active());
-  lv_label_set_long_mode(text_label, LV_LABEL_LONG_WRAP);  // Breaks the long lines
-  lv_label_set_text(text_label, "Hello, world!");
-  lv_obj_set_width(text_label, 150);  // Set smaller width to make the lines wrap
-  lv_obj_set_style_text_align(text_label, LV_TEXT_ALIGN_CENTER, 0);
-  lv_obj_align(text_label, LV_ALIGN_CENTER, 0, -90);
-
-  lv_obj_t* btn_label;
-  // Create a Button (btn1)
-  lv_obj_t* btn1 = lv_button_create(lv_screen_active());
-  lv_obj_add_event_cb(btn1, event_handler_btn1, LV_EVENT_ALL, NULL);
-  lv_obj_align(btn1, LV_ALIGN_CENTER, 0, -50);
-  lv_obj_remove_flag(btn1, LV_OBJ_FLAG_PRESS_LOCK);
-
-  btn_label = lv_label_create(btn1);
-  lv_label_set_text(btn_label, "Button");
-  lv_obj_center(btn_label);
-
-  // Create a Toggle button (btn2)
-  lv_obj_t* btn2 = lv_button_create(lv_screen_active());
-  lv_obj_add_event_cb(btn2, event_handler_btn2, LV_EVENT_ALL, NULL);
-  lv_obj_align(btn2, LV_ALIGN_CENTER, 0, 10);
-  lv_obj_add_flag(btn2, LV_OBJ_FLAG_CHECKABLE);
-  lv_obj_set_height(btn2, LV_SIZE_CONTENT);
-
-  btn_label = lv_label_create(btn2);
-  lv_label_set_text(btn_label, "Toggle");
-  lv_obj_center(btn_label);
-
-  // Create a slider aligned in the center bottom of the TFT display
-  lv_obj_t* slider = lv_slider_create(lv_screen_active());
-  lv_obj_align(slider, LV_ALIGN_CENTER, 0, 60);
-  lv_obj_add_event_cb(slider, slider_event_callback, LV_EVENT_VALUE_CHANGED, NULL);
-  lv_slider_set_range(slider, 0, 100);
-  lv_obj_set_style_anim_duration(slider, 2000, 0);
-
-  // Create a label below the slider to display the current slider value
-  slider_label = lv_label_create(lv_screen_active());
-  lv_label_set_text(slider_label, "0%");
-  lv_obj_align_to(slider_label, slider, LV_ALIGN_OUT_BOTTOM_MID, 0, 10);
 }
 
 void setup() {
@@ -260,8 +251,29 @@ void setup() {
      lv_demo_widgets();
      */
 
-  // Function to draw the GUI (text, buttons and sliders)
-  lv_create_main_gui();
+  // Create a Label
+  lv_obj_t* label = lv_label_create(lv_screen_active());
+  lv_label_set_text(label, "Hello my dear, I'm LVGL!");
+  lv_obj_align(label, LV_ALIGN_CENTER, 0, -50);
+
+  // Create a Clock
+  label_notif = lv_label_create(lv_screen_active());
+  lv_label_set_text(label_notif, "12:00:00");
+  lv_obj_align(label_notif, LV_ALIGN_CENTER, 0, 0);
+
+  static uint32_t user_data = 10;
+
+  lv_timer_t* timer1 = lv_timer_create(timer1_tick, 1000, &user_data);
+
+  // Create a Button (btn1)
+  lv_obj_t* btn1 = lv_button_create(lv_screen_active());
+  lv_obj_add_event_cb(btn1, event_btn1_cb, LV_EVENT_ALL, NULL);
+  lv_obj_align(btn1, LV_ALIGN_CENTER, 0, +50);
+  lv_obj_remove_flag(btn1, LV_OBJ_FLAG_PRESS_LOCK);
+
+  lv_obj_t* btn_label = lv_label_create(btn1);
+  lv_label_set_text(btn_label, "Reset");
+  lv_obj_center(btn_label);
 
   touch.begin(); /* Initialize the touchpad */
 
