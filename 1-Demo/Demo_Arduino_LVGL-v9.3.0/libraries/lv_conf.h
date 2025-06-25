@@ -651,6 +651,29 @@
 #define LV_FONT_UNSCII_8  0
 #define LV_FONT_UNSCII_16 0
 
+/** FreeSans monospaced fonts */
+#define LV_FONT_FREESANS_8 0
+#define LV_FONT_FREESANS_10 0
+#define LV_FONT_FREESANS_12 0
+#define LV_FONT_FREESANS_14 0
+#define LV_FONT_FREESANS_16 0
+#define LV_FONT_FREESANS_18 0
+#define LV_FONT_FREESANS_20 0
+#define LV_FONT_FREESANS_22 0
+#define LV_FONT_FREESANS_24 0
+#define LV_FONT_FREESANS_26 0
+#define LV_FONT_FREESANS_28 0
+#define LV_FONT_FREESANS_30 0
+#define LV_FONT_FREESANS_32 0
+#define LV_FONT_FREESANS_34 0
+#define LV_FONT_FREESANS_36 0
+#define LV_FONT_FREESANS_38 0
+#define LV_FONT_FREESANS_40 0
+#define LV_FONT_FREESANS_42 0
+#define LV_FONT_FREESANS_44 0
+#define LV_FONT_FREESANS_46 0
+#define LV_FONT_FREESANS_48 0
+
 /** Optionally declare custom fonts here.
  *
  *  You can use any of these fonts as the default font too and they will be available

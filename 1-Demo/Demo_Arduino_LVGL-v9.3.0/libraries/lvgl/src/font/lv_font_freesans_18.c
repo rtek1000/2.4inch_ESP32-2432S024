@@ -1,7 +1,7 @@
 /*******************************************************************************
  * Size: 18 px
  * Bpp: 4
- * Opts: --bpp 4 --size 18 --no-compress --font FreeSans.ttf --range 32-255 --format lvgl -o lv_font_montserrat_18.c
+ * Opts: --bpp 4 --size 18 --no-compress --font FreeSans.ttf --range 32-255 --format lvgl -o lv_font_freesans_18.c
  ******************************************************************************/
 
 #ifdef LV_LVGL_H_INCLUDE_SIMPLE
@@ -10,11 +10,11 @@
 #include "../../lvgl.h"
 #endif
 
-#ifndef LV_FONT_MONTSERRAT_18
-#define LV_FONT_MONTSERRAT_18 1
+#ifndef LV_FONT_FREESANS_18
+#define LV_FONT_FREESANS_18 1
 #endif
 
-#if LV_FONT_MONTSERRAT_18
+#if LV_FONT_FREESANS_18
 
 /*-----------------
  *    BITMAPS
@@ -2370,7 +2370,7 @@ static lv_font_fmt_txt_dsc_t font_dsc = {
 #endif
 };
 
-extern const lv_font_t lv_font_montserrat_18;
+extern const lv_font_t lv_font_freesans_18;
 
 
 /*-----------------
@@ -2379,9 +2379,9 @@ extern const lv_font_t lv_font_montserrat_18;
 
 /*Initialize a public general font descriptor*/
 #if LVGL_VERSION_MAJOR >= 8
-const lv_font_t lv_font_montserrat_18 = {
+const lv_font_t lv_font_freesans_18 = {
 #else
-lv_font_t lv_font_montserrat_18 = {
+lv_font_t lv_font_freesans_18 = {
 #endif
     .get_glyph_dsc = lv_font_get_glyph_dsc_fmt_txt,    /*Function pointer to get glyph's data*/
     .get_glyph_bitmap = lv_font_get_bitmap_fmt_txt,    /*Function pointer to get glyph's bitmap*/
@@ -2396,12 +2396,12 @@ lv_font_t lv_font_montserrat_18 = {
 #endif
     .dsc = &font_dsc,          /*The custom font data. Will be accessed by `get_glyph_bitmap/dsc` */
 #if LV_VERSION_CHECK(8, 2, 0) || LVGL_VERSION_MAJOR >= 9
-    .fallback = &lv_font_montserrat_18,
+    .fallback = &lv_font_freesans_18,
 #endif
     .user_data = NULL,
 };
 
 
 
-#endif /*#if LV_FONT_MONTSERRAT_18*/
+#endif /*#if LV_FONT_FREESANS_18*/
 

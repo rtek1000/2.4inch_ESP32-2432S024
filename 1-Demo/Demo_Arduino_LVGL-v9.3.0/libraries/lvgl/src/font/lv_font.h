@@ -346,6 +346,90 @@ LV_FONT_DECLARE(lv_font_unscii_8)
 LV_FONT_DECLARE(lv_font_unscii_16)
 #endif
 
+#if LV_FONT_FREESANS_8
+LV_FONT_DECLARE(lv_font_freesans_8)
+#endif
+
+#if LV_FONT_FREESANS_10
+LV_FONT_DECLARE(lv_font_freesans_10)
+#endif
+
+#if LV_FONT_FREESANS_12
+LV_FONT_DECLARE(lv_font_freesans_12)
+#endif
+
+#if LV_FONT_FREESANS_14
+LV_FONT_DECLARE(lv_font_freesans_14)
+#endif
+
+#if LV_FONT_FREESANS_16
+LV_FONT_DECLARE(lv_font_freesans_16)
+#endif
+
+#if LV_FONT_FREESANS_18
+LV_FONT_DECLARE(lv_font_freesans_18)
+#endif
+
+#if LV_FONT_FREESANS_20
+LV_FONT_DECLARE(lv_font_freesans_20)
+#endif
+
+#if LV_FONT_FREESANS_22
+LV_FONT_DECLARE(lv_font_freesans_22)
+#endif
+
+#if LV_FONT_FREESANS_24
+LV_FONT_DECLARE(lv_font_freesans_24)
+#endif
+
+#if LV_FONT_FREESANS_26
+LV_FONT_DECLARE(lv_font_freesans_26)
+#endif
+
+#if LV_FONT_FREESANS_28
+LV_FONT_DECLARE(lv_font_freesans_28)
+#endif
+
+#if LV_FONT_FREESANS_30
+LV_FONT_DECLARE(lv_font_freesans_30)
+#endif
+
+#if LV_FONT_FREESANS_32
+LV_FONT_DECLARE(lv_font_freesans_32)
+#endif
+
+#if LV_FONT_FREESANS_34
+LV_FONT_DECLARE(lv_font_freesans_34)
+#endif
+
+#if LV_FONT_FREESANS_36
+LV_FONT_DECLARE(lv_font_freesans_36)
+#endif
+
+#if LV_FONT_FREESANS_38
+LV_FONT_DECLARE(lv_font_freesans_38)
+#endif
+
+#if LV_FONT_FREESANS_40
+LV_FONT_DECLARE(lv_font_freesans_40)
+#endif
+
+#if LV_FONT_FREESANS_42
+LV_FONT_DECLARE(lv_font_freesans_42)
+#endif
+
+#if LV_FONT_FREESANS_44
+LV_FONT_DECLARE(lv_font_freesans_44)
+#endif
+
+#if LV_FONT_FREESANS_46
+LV_FONT_DECLARE(lv_font_freesans_46)
+#endif
+
+#if LV_FONT_FREESANS_48
+LV_FONT_DECLARE(lv_font_freesans_48)
+#endif
+
 /*Declare the custom (user defined) fonts*/
 #ifdef LV_FONT_CUSTOM_DECLARE
 LV_FONT_CUSTOM_DECLARE
