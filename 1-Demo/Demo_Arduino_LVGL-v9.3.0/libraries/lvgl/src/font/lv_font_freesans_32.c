@@ -1,7 +1,7 @@
 /*******************************************************************************
  * Size: 32 px
  * Bpp: 4
- * Opts: --bpp 4 --size 32 --no-compress --font FreeSans.ttf --range 32-255 --format lvgl -o lv_font_freesans_32.c
+ * Opts: --no-compress --no-prefilter --bpp 4 --size 32 --font FreeSans.ttf -r 0x20-0xFF --format lvgl -o lv_font_freesans_32.c --force-fast-kern-format
  ******************************************************************************/
 
 #ifdef LV_LVGL_H_INCLUDE_SIMPLE
@@ -5057,7 +5057,6 @@ static lv_font_fmt_txt_dsc_t font_dsc = {
 #endif
 };
 
-extern const lv_font_t lv_font_freesans_32;
 
 
 /*-----------------
@@ -5083,7 +5082,7 @@ lv_font_t lv_font_freesans_32 = {
 #endif
     .dsc = &font_dsc,          /*The custom font data. Will be accessed by `get_glyph_bitmap/dsc` */
 #if LV_VERSION_CHECK(8, 2, 0) || LVGL_VERSION_MAJOR >= 9
-    .fallback = &lv_font_freesans_32,
+    .fallback = NULL,
 #endif
     .user_data = NULL,
 };

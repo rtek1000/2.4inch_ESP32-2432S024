@@ -1,0 +1,19 @@
+Use the offline converter with these commands below:
+
+https://github.com/lvgl/lv_font_conv
+
+(just as an example, change the names as needed)
+sudo npx lv_font_conv --no-compress --no-prefilter --bpp 4 --size 18 --font FreeSans.ttf -r 0x20-0xFF --format lvgl -o lv_font_freesans_18.c --force-fast-kern-format
+
+sudo npx lv_font_conv --no-compress --no-prefilter --bpp 4 --size 18 --font fileName.ttf -r 0x20-0xFF --format lvgl -o lv_font_fontName_18.c --force-fast-kern-format
+
+Note: These flags "--no-compress --no-prefilter --bpp 4 etc." are present in all lvgl font files (*.c),
+open a file with a text editor to check, they are in the "lvgl/src/font" folder
+
+- The online converter can generate files without the necessary flags
+
+-----
+
+- Follow the documentation guidelines to configure other necessary files (lv_conf.h and lv_font.h):
+
+https://docs.lvgl.io/master/details/main-modules/font.html
