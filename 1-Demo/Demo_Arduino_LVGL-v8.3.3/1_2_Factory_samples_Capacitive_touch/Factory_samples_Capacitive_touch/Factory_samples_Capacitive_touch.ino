@@ -8,6 +8,7 @@
 #include <lvgl.h>
 #include <TFT_eSPI.h>
 #include "CST820.h"
+#include <Wire.h>
 #include <demos/lv_demos.h>
 
 // 0,1: Portrait; 1,3: Landscape
@@ -221,6 +222,8 @@ void setup() {
   tft.initDMA();                 /* Initialize DMA */
 
   touch.begin(); /* Initialize the touchpad */
+  Wire.setClock(400000); // set I2C speed, add it after touch.begin() to speed up
+  
   digitalWrite(27, HIGH);
   tft.fillScreen(TFT_RED);
   delay(500);
