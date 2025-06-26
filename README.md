@@ -70,6 +70,6 @@ Note:
 ##### Touchscreen
 
 Note:
-- I noticed that sometimes false touches occur on the touchscreen, and this can trigger events such as screen scrolling and clicking a button. On different days, I've had a button with a MessageBox open and another situation where the screen scrolls, as if there had been more than one false touch. The CST820 IC datasheet recommends using the interrupt pin (INT), but unfortunately my display does not generate a signal on the INT pin. To try to get around this, I added a simple check of consecutive readings, and only 5 attempts to read again (so as not to cause too much delay in the rest of the display operations).
+- I noticed that sometimes false touches occur on the touchscreen, and this can trigger events such as screen scrolling and clicking a button. On different days, I've had a button with a MessageBox open and another situation where the screen scrolls, as if there had been more than one false touch. The CST820 IC datasheet recommends using the interrupt pin (INT), but unfortunately my display does not generate a signal on the INT pin. To try to get around this, I added a simple check of consecutive readings, and only 5 attempts to read again (so as not to cause too much delay in the rest of the display operations) see the CST820 driver files.
 
 - Another observation is about the speed of the I2C (Wire) bus, CST820 datasheet states that the IC can operate from 10kHz to 400kHz.
