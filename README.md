@@ -1,3 +1,7 @@
+Note: This display has problems
+
+-----
+
 Intro by [NoosaHydro](https://github.com/NoosaHydro/2.4inch_ESP32-2432S024):
 
 # 2.4inch_ESP32-2432S024
