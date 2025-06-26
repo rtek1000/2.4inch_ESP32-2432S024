@@ -77,7 +77,9 @@ Note:
 - - The result was that the INT pin makes a low level interrupt (falling). But the datasheet says that the interrupt edge can be configured as high or low, so to know which one it is, just monitor the INT pin without touching the screen.
 
 
-- What caught my attention is that I left the ESP32 microcontroller input as just INPUT, without PULL-UP, and even so the interruption occurs. In other words, the INT pin of the CST820 is sending a HIGH signal, but the board connects to GND (in the long term it is not possible to be sure that the CST820 IC will remain healthy). Datasheet only mentions that the maximum output current (IoH) should be 2mA (when the output provides a high signal), and the datasheet cites a maximum output current (IoL) of 20mA (when the output provides low signal), but I didn't find out if it can be short-circuited with GND. Unfortunately the designer got confused and left the pin linked to GND (Perhaps that's why this display hasn't become popular).
+- What caught my attention is that I left the ESP32 microcontroller input as just INPUT, without PULL-UP, and even so the interruption occurs. In other words, the INT pin of the CST820 is sending a HIGH signal, but the board connects to GND (in the long term it is not possible to be sure that the CST820 IC will remain healthy).
+
+- - Datasheet only mentions that the maximum output current (IoH) should be 2mA (when the output provides a high signal), and the datasheet cites a maximum output current (IoL) of 20mA (when the output provides low signal), but I didn't find out if it can be short-circuited with GND. Unfortunately the designer got confused and left the pin linked to GND (Perhaps that's why this display hasn't become popular).
 
 - Another observation is about the speed of the I2C (Wire) bus, CST820 datasheet states that the IC can operate from 10kHz to 400kHz.
 
