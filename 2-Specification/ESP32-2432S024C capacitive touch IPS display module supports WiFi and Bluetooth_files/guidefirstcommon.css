@@ -1,0 +1,279 @@
+*[onclick^="handDialog"],
+*[onclick^="creatDialog"],
+*[onclick^=" handDialog"],
+*[onclick^=" creatDialog"],
+div[onclick^="setwebimCookie"],
+div[onclick^=" setwebimCookie"],
+*[onclick^=" showIMDialogcus"],
+*[onclick^="showIMDialogcus"],
+*[onclick*="contactnow.html"],
+*[onclick^="f_top_product_line2_contact"],
+*[onclick*="openDialog"],
+*[onclick^="f_product_lin2_contact"],
+*[onclick^="f_category_three_point_submit"],
+a[onclick^="document.querySelector('#kwd_pid')"],
+a[onclick^="document.getElementById('hu_header_click_form'"],
+*:not(.v-website):not(.evc-toolbar):not(.v-time)
+  > *[onclick^="getGuideCustomIm"],
+*:not(.v-website):not(.evc-toolbar):not(.v-time)
+  > *[onclick^="getGuideCustomwa"],
+*:not(.v-website):not(.evc-toolbar):not(.v-time)
+  > *[onclick^=" getGuideCustomIm"],
+*:not(.v-website):not(.evc-toolbar):not(.v-time)
+  > *[onclick^=" getGuideCustomwa"],
+*:not(#floatAd) a[href$="contactnow.html"],
+*:not(#floatAd) a[href^="javascript:quireone"] *[type="submit"][name="submit"],
+*:not(#floatAd)
+  form[action$="contactnow.html"][method="POST"]
+  *[type="submit"][name="submit"],
+*:not(#floatAd)
+  form[action$="contactnow.html"][method="POST"]:not([onsubmit]):not([target])
+  button[type="submit"],
+*:not(#floatAd)
+  form[onsubmit^="return changeAction"][method="POST"]
+  *[type="submit"][name="submit"] {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  /* text-indent: -9999px !important; */
+  overflow: hidden;
+  pointer-events: none !important;
+  min-width: 55px;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+}
+
+.hideAddLoading,
+*[onclick^="f_top_product_line2_contact"].hideAddLoading,
+*[onclick^="f_product_lin2_contact"].hideAddLoading,
+*[onclick^="f_category_three_point_submit"].hideAddLoading,
+*[onclick*="contactnow.html"].hideAddLoading,
+*[onclick*="openDialog"].hideAddLoading,
+a[onclick^="document.querySelector('#kwd_pid')"].hideAddLoading,
+a[onclick^="document.getElementById('hu_header_click_form'"].hideAddLoading,
+*:not(.v-website):not(.evc-toolbar):not(.v-time)
+  > *[onclick^="getGuideCustomIm"].hideAddLoading,
+*:not(.v-website):not(.evc-toolbar):not(.v-time)
+  > *[onclick^="getGuideCustomwa"].hideAddLoading,
+*:not(.v-website):not(.evc-toolbar):not(.v-time)
+  > *[onclick^=" getGuideCustomIm"].hideAddLoading,
+*:not(.v-website):not(.evc-toolbar):not(.v-time)
+  > *[onclick^=" getGuideCustomwa"].hideAddLoading,
+*:not(#floatAd) #TB_button a[href$="contactnow.html"],
+*:not(#floatAd) .vr-bottom-msg a[href$="contactnow.html"],
+*:not(#floatAd) a[href$="contactnow.html"].hideAddLoading,
+*:not(#floatAd)
+  a[href^="javascript:quireone"]
+  *[type="submit"][name="submit"].hideAddLoading,
+*:not(#floatAd)
+  form[action$="contactnow.html"][method="POST"].hideAddLoading
+  *[type="submit"][name="submit"],
+*:not(#floatAd)
+  form[action$="contactnow.html"][method="POST"]:not([onsubmit]):not([target])
+  button[type="submit"].hideAddLoading,
+*:not(#floatAd)
+  form[onsubmit^="return changeAction"][method="POST"].hideAddLoading
+  *[type="submit"][name="submit"],
+*:not(#floatAd)
+  form[action$="contactnow.html"][method="POST"]
+  *[type="submit"][name="submit"].hideAddLoading,
+*:not(#floatAd)
+  form[onsubmit^="return changeAction"][method="POST"]
+  *[type="submit"][name="submit"].hideAddLoading {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  /* text-indent: initial !important; */
+  pointer-events: inherit !important;
+}
+
+.companyBreifly .companyBreiflyList a.hideAddLoading,
+*:not(#floatAd) .detailText .detailBtns a.hideAddLoading {
+  text-indent: 0.2rem !important;
+}
+
+.card .contact a.hideAddLoading,
+.vr-container .vr-bottom li > a {
+  text-align: center;
+}
+
+.removeIconContent:before,
+.removeIconContent:after,
+.no_product_detailmain_2 .ri .sub .hideAddLoading + div,
+.detail_pp_99708 .p_product_main .p_left .p_c_btn1,
+.no_product_groupV3 .btn.getbestprice .cusim,
+.no_product_groupV3 .btn.getbestprice .cuswa,
+.no_product_groupV3 .btn.getbestprice .cusall,
+.evc-toolbar a i,
+.hideAddLoading .elementHideIcon,
+.addLoading .elementHideIcon,
+.elementHideText::before,
+.elementHideText:after,
+.elementHideIcon,
+.no_product_groupV3 .btn.getbestprice.addLoading:after {
+  display: none !important;
+}
+
+.companyinfo_99702_106 .float-left a.learn-more {
+  font-size: 20px;
+}
+
+.expert_online_99702_105 .learn-more {
+  font-size: 16px;
+}
+
+.f_header_main_raq .head_top .raq,
+.f_header_main_raq_search .head_top .raq,
+.f_category_three_point .pro_window dd a {
+  display: inline-flex !important;
+}
+
+.f_inquiry_recommend .product_detail_td .btn_wrap .submit_btn.hideAddLoading,
+.n_contact_box .btn-wrap .submit_btn.hideAddLoading,
+.n_contact_box_1 .btn-wrap .submit_btn.hideAddLoading,
+.n_contact_box_2 .btn-wrap .submit_btn.hideAddLoading {
+  width: auto !important;
+  height: 2em !important;
+  background-position: 6px center !important;
+  max-width: 150px;
+}
+.f_product_all_type .btn_box .contact_btn,
+.f_product_detailmain_lr .cont_r a.contact_btn,
+.f_product_detailmain_lrV1 .cont_r a.contact_btn,
+.f_product_detailmain_lrV2 .cont_r a.contact_btn,
+.f_product_detailmain_lrV3 .cont_r a.contact_btn {
+  background-image: none !important;
+}
+.f_product_all_type .btn_box .contact_btn.hideAddLoading,
+.f_product_detailmain_lr .cont_r a.contact_btn.hideAddLoading,
+.f_product_detailmain_lrV1 .cont_r a.contact_btn.hideAddLoading,
+.f_product_detailmain_lrV2 .cont_r a.contact_btn.hideAddLoading,
+.f_product_detailmain_lrV3 .cont_r a.contact_btn.hideAddLoading {
+  color: #fff;
+  padding: 0 13px 0 13px;
+  width: auto !important;
+  height: 25px !important;
+  line-height: 26px;
+  border: 0;
+  font-size: 13px;
+  border-radius: 2px;
+  font-weight: bold;
+  background-color: #ff771c;
+  max-width: 150px;
+}
+.no_product_list .product_name a {
+  padding: 0 13px !important;
+}
+.f_product_topshow .product_info button:hover {
+  background-color: #fff;
+}
+
+.removeIconContent {
+  background-image: none !important;
+}
+.removeIconContent .cusim {
+  margin: 0;
+}
+
+.view .xunpanBtn div:last-child a.hideAddLoading .elementHideIcon {
+  display: block !important;
+}
+
+.addLoading {
+  text-indent: -9999px;
+  position: relative;
+  overflow: hidden;
+  pointer-events: none !important;
+}
+
+.xunpanBtn div a.hideAddLoading {
+  text-align: center;
+  width: min-content;
+  color: #fff;
+  margin-left: 10px;
+  font-size: 14px;
+}
+
+.addLoading:after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: -175px;
+  left: -175px;
+  background: rgb(230, 230, 230);
+  width: 350px;
+  height: 350px;
+  opacity: 20%;
+  transform: rotate(-30deg);
+  -webkit-animation: blink-2 2.5s ease-in-out infinite both;
+  animation: blink-2 2.5s ease-in-out infinite both;
+}
+
+@-webkit-keyframes blink-2 {
+  0% {
+    left: -280%;
+  }
+
+  100% {
+    left: 150%;
+  }
+}
+
+@keyframes blink-2 {
+  0% {
+    left: -280%;
+  }
+
+  100% {
+    left: 150%;
+  }
+}
+
+.cusim {
+  display: inline-block !important;
+  width: 20px !important;
+  height: 20px !important;
+  margin-left: 4px !important;
+  background-size: contain !important;
+  vertical-align: middle;
+  position: relative !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+  flex-shrink: 0;
+  top: -1px;
+}
+
+.cuswa {
+  display: inline-block !important;
+  width: 20px !important;
+  height: 20px !important;
+  margin-left: 4px !important;
+  background-size: contain !important;
+  vertical-align: middle;
+  position: relative !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+  flex-shrink: 0;
+  top: -1px;
+}
+
+.cusall {
+  display: inline-block !important;
+  width: 20px !important;
+  height: 20px !important;
+  margin-left: 4px !important;
+  background-size: contain !important;
+  vertical-align: middle;
+  position: relative !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+  flex-shrink: 0;
+  top: -1px;
+}
+
+.nextIconShow.cusall,
+.nextIconShow.cusim,
+.nextIconShow.cuswa {
+  margin-left: 0 !important;
+  margin-right: 4px !important;
+}
