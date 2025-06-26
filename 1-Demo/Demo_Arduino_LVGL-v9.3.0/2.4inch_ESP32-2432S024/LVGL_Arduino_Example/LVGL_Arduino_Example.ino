@@ -3,6 +3,7 @@
 
 #include <lvgl.h>
 #include "CST820.h"
+#include <Wire.h>
 
 #if LV_USE_TFT_ESPI
 #include <TFT_eSPI.h>
@@ -19,7 +20,7 @@
 // static lv_color_t *buf2;
 
 TFT_eSPI tft = TFT_eSPI();                      /* TFT example */
-CST820 touch(I2C_SDA, I2C_SCL, TP_RST, TP_INT); /* Touch instance */
+CST820 touch(I2C_SDA, I2C_SCL, TP_RST, TP_INT); /* Touch instance - CST820 can operate from 10kHz to 400kHz*/
 
 /*To use the built-in examples and demos of LVGL uncomment the includes below respectively.
  *You also need to copy `lvgl/examples` to `lvgl/src/examples`. Similarly for the demos `lvgl/demos` to `lvgl/src/demos`.
@@ -285,6 +286,8 @@ void setup() {
   lv_obj_center(btn_label);
 
   touch.begin(); /* Initialize the touchpad */
+
+  Wire.setClock(400000); // set I2C speed, add it after touch.begin() to speed up
 
   Serial.println("Setup done");
 }
