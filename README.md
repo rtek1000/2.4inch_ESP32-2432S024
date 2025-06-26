@@ -72,7 +72,7 @@ Note:
 Note:
 - I noticed that sometimes false touches occur on the touchscreen, and this can trigger events such as screen scrolling and clicking a button. On different days, I've had a button with a MessageBox open and another situation where the screen scrolls, as if there had been more than one false touch. The CST820 IC datasheet recommends using the interrupt pin (INT), but unfortunately my display does not generate a signal on the INT pin. To try to get around this, I added a simple check of consecutive readings, and only 5 attempts to read again (so as not to cause too much delay in the rest of the display operations) see the CST820 driver files.
 
-- I did new tests, I removed the TP-C connector on the board, being very careful not to let heat reach the display, but the connector did not survive. I made a new connection from the INT pin of the CST820 to the GPIO36 pin (where the touch interrupt is when resistive touch is used in conjunction with the TP2046 IC), as can be seen in the diagram (U3).
+- I did new tests, I removed the TP-C connector on the board, being very careful not to let heat reach the display, but the connector did not survive. I made a new connection from the INT pin of the CST820 to the GPIO36 pin (where the touch interrupt is when resistive touch is used in conjunction with the XPT2046 IC), as can be seen in the diagram (U3).
 
 - - The result was that the INT pin makes a low level interrupt (falling). But the datasheet says that the interrupt edge can be configured as high or low, so to know which one it is, just monitor the INT pin without touching the screen.
 
