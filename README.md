@@ -83,7 +83,7 @@ Note:
 
 ##### Warning
 
-- Warning: Pin 5 of the TP-C connector was connected directly to GND, it is recommended to remove resistor R25 to avoid problems with the ESP32, especially if you want to use the I2C port present in connector P3, pin 1 (IO21). (in the long term it is not possible to be sure that the CST820 IC will remain healthy)
+- Warning: Pin 5 of the TP-C connector was connected directly to GND, it is recommended to remove resistor R25 to avoid problems with the ESP32, especially if you want to use the I2C port present in connector P3, pin 1 (IO21). (In the long term it is not possible to be sure that the CST820 IC will remain healthy)
 
 ![img](https://raw.githubusercontent.com/rtek1000/2.4inch_ESP32-2432S024/refs/heads/main/5-Schematic/2432S024-2-V1.0_GND_ERROR.png)
 
