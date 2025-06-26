@@ -14,6 +14,10 @@ Board, shown running the as-shipped demo touchscreen firmware
 
 Back, showing location and naming of pins and headers (refer Specifications PDF)
 
+-----
+
+-----
+
 By RTEK1000:
 
 ### Info:
