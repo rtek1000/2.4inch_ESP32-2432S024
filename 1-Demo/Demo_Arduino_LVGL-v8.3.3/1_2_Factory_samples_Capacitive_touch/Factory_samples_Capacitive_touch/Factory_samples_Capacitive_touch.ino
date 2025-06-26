@@ -155,13 +155,25 @@ void my_disp_flush(lv_disp_drv_t *disp, const lv_area_t *area, lv_color_t *color
 /* Read the touchpad */
 void my_touchpad_read(lv_indev_drv_t *indev_driver, lv_indev_data_t *data) {
 
-  bool touched;
-  uint8_t gesture;
-  uint16_t touchX, touchY;
+  bool touched = false;
+  bool touched2 = false;
+  bool is_valid = false;
+  uint8_t gesture = 0;
+  uint16_t touchX = 0, touchY = 0;
+  uint16_t touchX2 = 0, touchY2 = 0;
 
-  touched = touch.getTouch(&touchX, &touchY, &gesture);
+  for (uint8_t i = 0; i < 5; i++) {
+    touched = touch.getTouch(&touchX, &touchY, &gesture);
+    touched2 = touch.getTouch(&touchX2, &touchY2, &gesture2);
+    
+    if ((touched == touched2) && (touchX == touchX2) && (touchY == touchY2) && (gesture == gesture2)) {
+      is_valid = true;
 
-  if (!touched) {
+      break;
+    }
+  }
+
+  if ((!touched) || (!is_valid)) {
     data->state = LV_INDEV_STATE_REL;
   } else {
     data->state = LV_INDEV_STATE_PR;
