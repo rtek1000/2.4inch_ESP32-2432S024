@@ -74,24 +74,12 @@ void my_disp_flush(lv_display_t* disp, const lv_area_t* area, uint8_t* px_map) {
 void my_touchpad_read(lv_indev_t* indev, lv_indev_data_t* data) {
   // Checks if Touchscreen was touched, and prints X, Y and Pressure (Z)
   bool touched = false;
-  bool touched2 = false;
-  bool is_valid = false;
   uint8_t gesture = 0;
   uint16_t touchX = 0, touchY = 0;
-  uint16_t touchX2 = 0, touchY2 = 0;
 
-  for (uint8_t i = 0; i < 5; i++) {
-    touched = touch.getTouch(&touchX, &touchY, &gesture);
-    touched2 = touch.getTouch(&touchX2, &touchY2, &gesture2);
-    
-    if ((touched == touched2) && (touchX == touchX2) && (touchY == touchY2) && (gesture == gesture2)) {
-      is_valid = true;
+  touched = touch.getTouch(&touchX, &touchY, &gesture);
 
-      break;
-    }
-  }
-
-  if ((!touched) || (!is_valid)) {
+  if (!touched) {
     data->state = LV_INDEV_STATE_RELEASED;
   } else {
     data->state = LV_INDEV_STATE_PRESSED;
