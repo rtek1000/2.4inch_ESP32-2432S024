@@ -28,7 +28,7 @@ By RTEK1000:
 
 <img src="https://raw.githubusercontent.com/rtek1000/2.4inch_ESP32-2432S024/main/photos/Landscape.jpg" width=50% height=50%>
 
-### If the error " 'GPIO' was not declared in this scope" occurs:
+##### If the error " 'GPIO' was not declared in this scope" occurs:
 - Try including this file:
 > #include "hal/gpio_ll.h" // GPIO register functions
 - - Ref.: https://github.com/prenticedavid/MCUFRIEND_kbv/issues/255
