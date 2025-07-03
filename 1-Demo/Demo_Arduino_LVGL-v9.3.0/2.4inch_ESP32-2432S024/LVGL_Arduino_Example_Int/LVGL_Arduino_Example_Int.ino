@@ -13,7 +13,13 @@
 #define I2C_SDA 33
 #define I2C_SCL 32
 #define TP_RST 25
-#define TP_INT 21
+
+/* Original schematic connected to GND: TP_INT IO21 */
+// #define TP_INT 21
+
+/* Added FPC-6p-0.5 external PCB adapter: TP_INT IO36
+   (release the pin IO21, need to remove R25)*/
+#define TP_INT 36
 
 // static lv_disp_draw_buf_t draw_buf;
 // static lv_color_t *buf1;
@@ -21,6 +27,8 @@
 
 TFT_eSPI tft = TFT_eSPI();                      /* TFT example */
 CST820 touch(I2C_SDA, I2C_SCL, TP_RST, TP_INT); /* Touch instance - CST820 can operate from 10kHz to 400kHz*/
+
+lv_indev_t* indev;  // touch device
 
 /*To use the built-in examples and demos of LVGL uncomment the includes below respectively.
  *You also need to copy `lvgl/examples` to `lvgl/src/examples`. Similarly for the demos `lvgl/demos` to `lvgl/src/demos`.
@@ -47,6 +55,19 @@ CST820 touch(I2C_SDA, I2C_SCL, TP_RST, TP_INT); /* Touch instance - CST820 can o
 #define DRAW_BUF_SIZE (TFT_HOR_RES * TFT_VER_RES / 10 * (LV_COLOR_DEPTH / 8))
 uint32_t draw_buf[DRAW_BUF_SIZE / 4];
 
+static int hr1 = 12;
+static int min1 = 0;
+static int sec1 = 0;
+
+lv_obj_t* label_notif;
+
+volatile uint8_t touch_int = 0;
+uint8_t touch_int_old = 0;
+
+lv_obj_t* mbox1;
+
+uint32_t lv_millis = 0;
+
 #if LV_USE_LOG != 0
 void my_print(lv_log_level_t level, const char* buf) {
   LV_UNUSED(level);
@@ -70,8 +91,23 @@ void my_disp_flush(lv_display_t* disp, const lv_area_t* area, uint8_t* px_map) {
   lv_display_flush_ready(disp);
 }
 
-/*Read the touchpad*/
-void my_touchpad_read(lv_indev_t* indev, lv_indev_data_t* data) {
+/* Use this to use the CST820 INT pin */
+void IRAM_ATTR ISR_TP_INT() {
+  touch_int++;
+}
+
+/* 
+   Normally an Input Device is read every LV_DEF_REFR_PERIOD milliseconds (set in lv_conf.h).
+   However, in some cases, you might need more control over when to read the input device.
+   You can do this by:
+   // // Update the input device's running mode to LV_INDEV_MODE_EVENT
+   // lv_indev_set_mode(indev, LV_INDEV_MODE_EVENT);
+   // // Call this anywhere you want to read the input device
+   // lv_indev_read(indev);
+   Source: https://docs.lvgl.io/9.3/details/main-modules/indev.html#switching-the-input-device-to-event-driven-mode 
+*/
+/* Read the touchpad callback */
+void my_touchpad_read_cb(lv_indev_t* indev, lv_indev_data_t* data) {
   // Checks if Touchscreen was touched, and prints X, Y and Pressure (Z)
   bool touched = false;
   uint8_t gesture = 0;
@@ -112,12 +148,6 @@ static uint32_t my_tick(void) {
   return millis();
 }
 
-static int hr1 = 12;
-static int min1 = 0;
-static int sec1 = 0;
-
-lv_obj_t* label_notif;
-
 void timer1_tick(lv_timer_t* timer) {
   if (sec1 < 59) {
     sec1++;
@@ -139,8 +169,6 @@ void timer1_tick(lv_timer_t* timer) {
 
   lv_label_set_text_fmt(label_notif, "%02d:%02d:%02d", hr1, min1, sec1);
 }
-
-lv_obj_t* mbox1;
 
 static void event_msgbox_cb(lv_event_t* e) {
   lv_obj_t* btn = lv_event_get_target_obj(e);
@@ -227,9 +255,13 @@ void setup() {
 #endif
 
   /*Initialize the (dummy) input device driver*/
-  lv_indev_t* indev = lv_indev_create();
+  indev = lv_indev_create();
   lv_indev_set_type(indev, LV_INDEV_TYPE_POINTER); /*Touchpad should have POINTER type*/
-  lv_indev_set_read_cb(indev, my_touchpad_read);
+  lv_indev_set_read_cb(indev, my_touchpad_read_cb);
+
+  /* Use this to use the CST820 INT pin */
+  /* Update the input device's running mode to LV_INDEV_MODE_EVENT */
+  lv_indev_set_mode(indev, LV_INDEV_MODE_EVENT);
 
   /* Create a simple label
      * ---------------------
@@ -276,12 +308,25 @@ void setup() {
 
   touch.begin(); /* Initialize the touchpad */
 
-  Wire.setClock(400000); // set I2C speed, add it after touch.begin() to speed up
+  Wire.setClock(400000);  // set I2C speed, add it after touch.begin() to speed up
+
+  /* Use this to use the CST820 INT pin */
+  attachInterrupt(TP_INT, ISR_TP_INT, FALLING);
 
   Serial.println("Setup done");
 }
 
 void loop() {
-  lv_timer_handler(); /* let the GUI do its work */
-  delay(1);           // let this time pass
+  if ((millis() - lv_millis) >= 1) {
+    lv_millis = millis();
+    lv_timer_handler(); /* let the GUI do its work */
+  }
+
+  if (touch_int != touch_int_old) {
+    /* Use this to use the CST820 INT pin */
+    /* Call this anywhere you want to read the input device */
+    lv_indev_read(indev);
+
+    touch_int_old = touch_int;
+  } 
 }
