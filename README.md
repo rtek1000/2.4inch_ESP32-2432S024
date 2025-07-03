@@ -108,6 +108,8 @@ https://www.aliexpress.com/item/1005005898190004.html
 
 I used one of these adapters, but the one I have is 12 pin, even so, it worked. I left the adapter glued over the SD card socket, using green 3M double sided tape.
 
+![img](https://raw.githubusercontent.com/rtek1000/2.4inch_ESP32-2432S024/refs/heads/main/photos/Display%20PCB%20adapter.jpg)
+
 Once the touch has an interrupt signal (on my display it occurs approximately every 37ms), the data is valid when the interrupt occurs, according to the CST820 datasheet.
 
 Using the CST820 interrupt pin with LVGL is a little more complicated than using baremetal screen codes, although LVGL greatly speeds up screen creation.
