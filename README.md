@@ -106,7 +106,7 @@ https://www.aliexpress.com/item/1005005898190004.html
 
 ![img](https://raw.githubusercontent.com/rtek1000/2.4inch_ESP32-2432S024/refs/heads/main/2-Specification/FPC-6P-0.5mm.png)
 
-I used one of these adapters, but the one I have is 12 pin, even so, it worked. I left the adapter glued over the SD card socket, using green 3M double sided tape (code 851J).
+I used one of these adapters, but the one I have is 12 pin, even so, it worked. I left the adapter glued over the SD card socket, using green 3M double sided tape (code [851J](https://www.3m.com/3M/en_US/p/d/b5005036045/)).
 
 ![img](https://raw.githubusercontent.com/rtek1000/2.4inch_ESP32-2432S024/refs/heads/main/photos/Display%20PCB%20adapter.jpg)
 
