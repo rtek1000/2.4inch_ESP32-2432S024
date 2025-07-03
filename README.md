@@ -1,4 +1,4 @@
-Note: This display has problems
+Note: This display has [problems](https://github.com/rtek1000/2.4inch_ESP32-2432S024/blob/main/README.md#warning)
 
 -----
 
