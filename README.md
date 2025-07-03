@@ -108,9 +108,9 @@ https://www.aliexpress.com/item/1005005898190004.html
 
 I used one of these adapters, but the one I have is 12 pin, even so, it worked. I left the adapter glued over the SD card socket, using green 3M double sided tape.
 
-Once the touch has an interrupt signal, the data is valid when the interrupt occurs, according to the CST820 datasheet.
+Once the touch has an interrupt signal (on my display it occurs approximately every 37ms), the data is valid when the interrupt occurs, according to the CST820 datasheet.
 
-using the CST820 interrupt pin with LVGL is a little more complicated than using baremetal screen codes, although LVGL greatly speeds up screen creation.
+Using the CST820 interrupt pin with LVGL is a little more complicated than using baremetal screen codes, although LVGL greatly speeds up screen creation.
 
 The method I found to use the CST820 interrupt pin with LVGL was to indirectly monitor the interrupt pin and call the touch reading routine (also indirectly, since the touch reading routine in the demo code is a callback function, called by another internal LVGL function).
 
