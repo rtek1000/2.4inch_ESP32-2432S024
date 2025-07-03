@@ -96,3 +96,7 @@ Note:
 ![img](https://raw.githubusercontent.com/rtek1000/2.4inch_ESP32-2432S024/refs/heads/main/5-Schematic/20250626_161243b.jpg)
 
 ![img](https://raw.githubusercontent.com/rtek1000/2.4inch_ESP32-2432S024/refs/heads/main/5-Schematic/20250626_153901b.jpg)
+
+-----
+
+This library is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE
