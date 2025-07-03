@@ -99,4 +99,23 @@ Note:
 
 -----
 
+- About the touchscreen, may can you try to use an adapter to actually connect the INT pin to an ESP32 input pin (I left it on ESP32 pin IO36, which is the pin used for the resistive touch [XPT2046, U3], and leave the I2C pins free [IO21, IO22. Connector P3]).
+
+I found an ad that can give you a reference to the type of adapter I'm referring to: FPC-6P-0.5mm
+https://www.aliexpress.com/item/1005005898190004.html
+
+![img](https://raw.githubusercontent.com/rtek1000/2.4inch_ESP32-2432S024/refs/heads/main/2-Specification/FPC-6P-0.5mm.png)
+
+I used one of these adapters, but the one I have is 12 pin, even so, it worked. I left the adapter glued over the SD card socket, using green 3M double sided tape.
+
+Once the touch has an interrupt signal, the data is valid when the interrupt occurs, according to the CST820 datasheet.
+
+using the CST820 interrupt pin with LVGL is a little more complicated than using baremetal screen codes, although LVGL greatly speeds up screen creation.
+
+The method I found to use the CST820 interrupt pin with LVGL was to indirectly monitor the interrupt pin and call the touch reading routine (also indirectly, since the touch reading routine in the demo code is a callback function, called by another internal LVGL function).
+
+Sample code can be seen at: [LVGL_Arduino_Example_Int
+](https://github.com/rtek1000/2.4inch_ESP32-2432S024/tree/main/1-Demo/Demo_Arduino_LVGL-v9.3.0/2.4inch_ESP32-2432S024/)
+-----
+
 This library is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE
