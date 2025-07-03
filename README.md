@@ -99,7 +99,7 @@ Note:
 
 -----
 
-- About the touchscreen, may can you try to use an adapter to actually connect the INT pin to an ESP32 input pin (I left it on ESP32 pin IO36, which is the pin used for the resistive touch [XPT2046, U3], and leave the I2C pins free [IO21, IO22. Connector P3]).
+You can try using an adapter to connect the INT pin to an ESP32 input pin (I left it on ESP32 pin IO36, which is the pin used for the resistive touch [XPT2046, U3], and leave the I2C pins free [IO21, IO22. Connector P3]).
 
 I found an ad that can give you a reference to the type of adapter I'm referring to: FPC-6P-0.5mm
 https://www.aliexpress.com/item/1005005898190004.html
