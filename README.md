@@ -115,7 +115,7 @@ Using the CST820 interrupt pin with LVGL is a little more complicated than using
 The method I found to use the CST820 interrupt pin with LVGL was to indirectly monitor the interrupt pin and call the touch reading routine (also indirectly, since the touch reading routine in the demo code is a callback function, called by another internal LVGL function).
 
 Sample code can be seen at: [LVGL_Arduino_Example_Int
-](https://github.com/rtek1000/2.4inch_ESP32-2432S024/tree/main/1-Demo/Demo_Arduino_LVGL-v9.3.0/2.4inch_ESP32-2432S024/)
+](https://github.com/rtek1000/2.4inch_ESP32-2432S024/tree/main/1-Demo/Demo_Arduino_LVGL-v9.3.0/2.4inch_ESP32-2432S024/LVGL_Arduino_Example_Int)
 
 -----
 
