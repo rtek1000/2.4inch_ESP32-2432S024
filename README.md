@@ -116,6 +116,7 @@ The method I found to use the CST820 interrupt pin with LVGL was to indirectly m
 
 Sample code can be seen at: [LVGL_Arduino_Example_Int
 ](https://github.com/rtek1000/2.4inch_ESP32-2432S024/tree/main/1-Demo/Demo_Arduino_LVGL-v9.3.0/2.4inch_ESP32-2432S024/)
+
 -----
 
 This library is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE
